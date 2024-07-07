@@ -1,0 +1,366 @@
+@import "tailwindcss/base";
+@import "tailwindcss/components";
+@import "tailwindcss/utilities";
+
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+@layer utilities {
+  .notched {
+    clip-path: polygon(0% 10px,
+        /* top left */
+        10px 0%,
+        /* top left */
+        calc(100% - 10px) 0%,
+        /* top right */
+        100% 10px,
+        /* top right */
+        100% calc(100% - 10px),
+        /* bottom right */
+        calc(100% - 10px) 100%,
+        /* bottom right */
+        10px 100%,
+        /* bottom left */
+        0 calc(100% - 10px)
+        /* bottom left */
+      );
+  }
+}
+
+.animate-bounce-up-fade {
+  animation: bounce-up-fade 0.5s ease-out forwards;
+}
+
+.animate-fade-in-down {
+  animation: fade-in-down 0.5s ease-out forwards;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.5s ease-out forwards;
+}
+
+.animate-fade-in-left {
+  animation: fade-in-left 0.5s ease-out forwards;
+}
+
+.fadeIn {
+  animation: fadeIn 2s ease-in-out forwards;
+}
+
+.fadeOut {
+  animation: fadeOut 2s ease-in-out forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+  }
+
+  to {
+    opacity: 0;
+  }
+}
+
+
+@keyframes bounce-up-fade {
+  0% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  50% {
+    opacity: 0.5;
+    transform: translateY(-20px);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+}
+
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fade-in {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+.coin {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  transform-style: preserve-3d;
+}
+
+.face {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.front {
+  transform: rotateY(180deg) translateZ(0.7em);
+}
+
+.back {
+  transform: rotateY(0deg) translateZ(0.7em);
+}
+
+
+:root {
+  font-family: "Montserrat", sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background: rgb(21, 18, 37);
+
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#151225", endColorstr="#3e2a5c", GradientType=1);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+
+a:hover {
+  color: #535bf2;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  place-items: center;
+  min-width: 320px;
+  min-height: 100vh;
+  background: rgb(21, 18, 37);
+  background: -moz-linear-gradient(322deg,
+      rgba(21, 18, 37, 1) 71%,
+      rgba(62, 42, 92, 1) 100%);
+  background: -webkit-linear-gradient(322deg,
+      rgba(21, 18, 37, 1) 71%,
+      rgba(62, 42, 92, 1) 100%);
+  background: linear-gradient(322deg,
+      rgba(21, 18, 37, 1) 71%,
+      rgba(62, 42, 92, 1) 100%);
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+h1 {
+  font-size: 3.2em;
+  line-height: 1.1;
+}
+
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+
+button:hover {
+  border-color: #646cff;
+}
+
+input {
+  background-color: #3B3B3B;
+}
+
+select {
+  background-color: #3B3B3B;
+}
+
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+
+  a:hover {
+    color: #747bff;
+  }
+
+  button {
+    background-color: #f9f9f9;
+  }
+}
+
+.corner-borders {
+  position: relative;
+}
+
+.corner-borders:before,
+.corner-borders:after,
+.corner-borders> :first-child:before,
+.corner-borders> :first-child:after {
+  content: '';
+  position: absolute;
+  background: #000;
+  /* Border color */
+}
+
+.corner-borders:before {
+  top: 0;
+  left: 0;
+  width: 15px;
+  /* Length of the corner border */
+  height: 2px;
+  /* Border width */
+}
+
+.corner-borders:after {
+  top: 0;
+  left: 0;
+  width: 2px;
+  /* Border width */
+  height: 15px;
+  /* Length of the corner border */
+}
+
+.corner-borders> :first-child:before {
+  bottom: 0;
+  right: 0;
+  width: 15px;
+  /* Length of the corner border */
+  height: 2px;
+  /* Border width */
+}
+
+.corner-borders> :first-child:after {
+  bottom: 0;
+  right: 0;
+  width: 2px;
+  /* Border width */
+  height: 15px;
+  /* Length of the corner border */
+}
+
+@keyframes pulseAnimation {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+  }
+}
+
+.pulse {
+  animation: pulseAnimation 2s infinite;
+}
+
+:root {
+  --color1: #19172D;
+  --color2: #312D57;
+  --color3: #484282;
+  --color4: #6058ac;
+  --color5: #776ed7;
+  --color6: #19172D;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  16.6%,
+  33.3% {
+    background-position: 100% 50%;
+  }
+
+  33.3%,
+  50% {
+    background-position: 200% 50%;
+  }
+
+  50%,
+  66.6% {
+    background-position: 300% 50%;
+  }
+
+  66.6%,
+  83.3% {
+    background-position: 400% 50%;
+  }
+
+  83.3%,
+  100% {
+    background-position: 500% 50%;
+  }
+}
+
+.gradient {
+  background: linear-gradient(to right,
+      var(--color1),
+      var(--color1),
+      var(--color2),
+      var(--color3),
+      var(--color2),
+      var(--color1));
+  background-size: 600% 100%;
+}
